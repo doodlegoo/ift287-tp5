@@ -35,8 +35,8 @@
     <servlet-class>biblioServlet.ListePretMembre</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>Emprunt</servlet-name>
-    <servlet-class>biblioServlet.Emprunt</servlet-class>
+    <servlet-name>Menu</servlet-name>
+    <servlet-class>ligueBaseballServlet.Login</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
