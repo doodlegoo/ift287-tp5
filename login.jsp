@@ -1,25 +1,6 @@
 <%@ page import="java.util.*,java.text.*" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-	<HEAD>
-		<TITLE>IFT287 - Système de gestion de ligue de baseball</TITLE>
-		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
-		<META NAME="author" CONTENT="Vincent Gagnon">
-		<META NAME="description" CONTENT="Page d'accueil système de gestion de ligue de Baseball">
-		
-		
-	    <!-- Bootstrap core CSS -->
-	    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-	
-	    <!-- Custom styles for this template -->
-	    <link href="style.css" rel="stylesheet">
-	
-		
-		
-	</HEAD>
-	<BODY>
-		
-		<H1>Gestion de ligue de baseball</H1>
+<%@ include file="/WEB-INF/jspf/header.jspf" %> 
+
 		<FORM ACTION="Login" METHOD="POST" role="form">
 			<BR> User Id Oracle : <INPUT TYPE="TEXT" NAME="userIdBD" VALUE="postgres" >
 		    Mot de passe Oracle : <INPUT TYPE="TEXT" NAME="motDePasseBD" VALUE="qwerty"><BR>
@@ -41,10 +22,4 @@
 		<%-- par le fureteur --%>
 		Date et heure normale de l'est: <%= DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, Locale.CANADA_FRENCH).format(new java.util.Date()) %>
 		
-	    <!-- Site footer -->
-	    <div class="footer">
-	    	<p>&copy; Ligue de baseball 2014</p>
-	    </div>
-		
-	</BODY>
-</HTML>
+<%@ include file="/WEB-INF/jspf/footer.jspf" %> 

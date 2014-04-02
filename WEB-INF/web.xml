@@ -24,7 +24,7 @@
   </servlet>
   <servlet>
     <servlet-name>Logout</servlet-name>
-    <servlet-class>biblioServlet.Logout</servlet-class>
+    <servlet-class>ligueBaseballServlet.Logout</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>SelectionMembre</servlet-name>
@@ -41,26 +41,21 @@
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
+   	<url-pattern>/login</url-pattern>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Test</servlet-name>
     <url-pattern>/Test</url-pattern>
+  	<url-pattern>/test</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>SelectionMembre</servlet-name>
-    <url-pattern>/SelectionMembre</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ListePretMembre</servlet-name>
-    <url-pattern>/ListePretMembre</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Emprunt</servlet-name>
-    <url-pattern>/Emprunt</url-pattern>
+    <servlet-name>Menu</servlet-name>
+    <url-pattern>/Menu</url-pattern>
+    <url-pattern>/menu</url-pattern>
   </servlet-mapping>
 </web-app>
