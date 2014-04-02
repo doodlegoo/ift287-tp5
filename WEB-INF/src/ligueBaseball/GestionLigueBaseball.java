@@ -29,7 +29,7 @@ public GestionMatch gestionMatch;
   * @param password mot de passe pour le user id
   *</pre>
   */
-public GestionLigueBaseball(String serveur, String bd, String user, String password)
+public GestionLigueBaseball(String serveur,String adresseIP, String bd, String user, String password)
   throws LigueBaseballException, SQLException
 {
 // allocation des objets pour le traitement des transactions
