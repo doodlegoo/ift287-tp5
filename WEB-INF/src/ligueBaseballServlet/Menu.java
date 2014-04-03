@@ -1,12 +1,16 @@
 package ligueBaseballServlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import ligueBaseball.LigueBaseballException;
 
 /**
  * Classe pour login syst�me de gestion de biblioth�que
@@ -18,9 +22,20 @@ import javax.servlet.http.HttpServletResponse;
 public class Menu extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		System.out.println("Hey tu a réussi");
+		
+		HttpSession session = request.getSession();
+		
+		
+		
+		String nom = request.getParameter("nom");
+		String terrain = request.getParameter("motDePasseBD");
+		String adresse = request.getParameter("adresse");
+		
+		
+		
 
-		RequestDispatcher dispatcher =
-				  request.getRequestDispatcher("/menu.jsp");
 	}
 
 	// Dans les formulaire, on utilise la m�thode POST

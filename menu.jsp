@@ -11,12 +11,18 @@
   </script>
 
 <div id="accordion">
-  <h3>Creer equipe</h3>
-  <div>
-    <p>
+	<h3>Creer equipe</h3>
+	<div>
+    <form action="isThisSerious?" METHOD="POST" role="form">
+			<BR> Nom equipe : <INPUT TYPE="TEXT" name="nom" > <BR>
+		    Nom terrain : <INPUT TYPE="TEXT" name="terrain " > <BR>
+		    Adresse terrain : <INPUT TYPE="TEXT" name="adresse" > <BR>
+			<INPUT TYPE="SUBMIT" VALUE="Afficher equipe" class="btn btn-default" >
+		</FORM>
     	Need : nom equipe, nom-terrain*, adresse-terrain*
-    </p>
-  </div>
+    	
+  
+	</div>
   <h3>Afficher equipe</h3>
   <div>
     <p>
