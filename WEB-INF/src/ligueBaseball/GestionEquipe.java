@@ -4,9 +4,9 @@ import java.sql.*;
 import java.util.List;
 import java.io.*;
 
-import org.jdom2.*;
+/*import org.jdom2.*;
 import org.jdom2.output.*;;
-
+*/
 /**
  *  * @author Mathieu Lavoie, Alex Provencher et Vincent Gagnon
  * classe intermedaire entre l'usager et les object qui parle a la base de donnee.
@@ -27,7 +27,7 @@ public class GestionEquipe {
 		this.terrain = terrain;
 	}
 
-	
+	/*
 	public void exportXml()
 	{
 		//Nous allons commencer notre arborescence en créant la racine XML 
@@ -57,7 +57,7 @@ public class GestionEquipe {
 		}
 		
 	}
-	
+	*/
 	
 	/**
 	 * Ajout d'une nouvelle equipe dans la base de donnees. S'il existe deja,

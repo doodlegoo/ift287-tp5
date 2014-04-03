@@ -36,7 +36,7 @@ private Connection conn;
  * @user userid sur le serveur SQL
  * @pass mot de passe sur le serveur SQL
  */
-public Connexion(String serveur, String bd, String pass, String user)
+public Connexion(String serveur, String bd, String user,String pass)
   throws SQLException
 {
 Driver d;
@@ -58,6 +58,7 @@ try {
 	} else if (serveur.equals("postgres")) {
 		d = (Driver) Class.forName("org.postgresql.Driver")
 				.newInstance();
+		System.out.println(d);
 		DriverManager.registerDriver(d);
 		conn = DriverManager.getConnection("jdbc:postgresql:" + bd,
 				user, pass);
@@ -116,7 +117,7 @@ conn.commit();
 public void rollback()
   throws SQLException
 {
-    System.out.println("Erreur usager: vous avez commis une erreur, aucune action n'a été commise");
+    System.out.println("Erreur usager: vous avez commis une erreur, aucune action n'a ï¿½tï¿½ commise");
     conn.rollback();
 }
 

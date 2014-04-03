@@ -49,8 +49,7 @@ public class Login extends HttpServlet {
 			// ouvrir une connexion avec la BD et cr�er les gestionnaires
 			System.out.println("Login: session id="
 					+ session.getId());
-			GestionLigueBaseball baseball = new GestionLigueBaseball(serveur,adresseIP,bd,
-					userIdOracle, motDePasseOracle);
+			GestionLigueBaseball baseball = new GestionLigueBaseball(serveur,adresseIP,bd,userIdOracle, motDePasseOracle);
 
 			// stocker l'instance de GestionLigue Baseball au sein de la session
 			// de l'utilisateur
@@ -61,7 +60,7 @@ public class Login extends HttpServlet {
 			// ils ne peuvent pas �tre appel�s directement par l'utilisateur
 			// seulement par un autre JSP ou un servlet
 			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("/WEB-INF/menu.jsp");
+					.getRequestDispatcher("/menu.jsp");
 			dispatcher.forward(request, response);
 			session.setAttribute("etat", new Integer(BaseballConstantes.CONNECTE));
 		} catch (SQLException e) {

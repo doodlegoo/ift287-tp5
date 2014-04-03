@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN" "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
-<web-app id="test-biblio">
-  <display-name>Système de gestion de ligue baseball</display-name>
+<web-app id="test-baseball">
+  <display-name>Systï¿½me de gestion de ligue baseball</display-name>
   <context-param>
     <param-name>exempleParam1</param-name>
     <param-value>valeurDeExempleParam1</param-value>
@@ -28,21 +28,21 @@
   </servlet>
   <servlet>
     <servlet-name>SelectionMembre</servlet-name>
-    <servlet-class>biblioServlet.SelectionMembre</servlet-class>
+    <servlet-class>ligueBaseballServlet.SelectionMembre</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ListePretMembre</servlet-name>
-    <servlet-class>biblioServlet.ListePretMembre</servlet-class>
+    <servlet-class>ligueBaseballServlet.ListePretMembre</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>Menu</servlet-name>
-    <servlet-class>ligueBaseballServlet.Login</servlet-class>
+    <servlet-class>ligueBaseballServlet.Menu</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
    	<url-pattern>/login</url-pattern>
-    <url-pattern>/</url-pattern>
+    <!--  <url-pattern>/</url-pattern>-->
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Test</servlet-name>

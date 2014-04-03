@@ -1,14 +1,15 @@
 package ligueBaseballServlet;
 import javax.servlet.http.*;
 
-import biblio.GestionBibliotheque;
 
 import java.sql.*;
 
+import ligueBaseball.GestionLigueBaseball;
+
 /** Classe pour gestion des sessions
  *  <P>
- * Système de gestion de bibliothèque
- *  &copy; 2004 Marc Frappier, Université de Sherbrooke
+ * Systï¿½me de gestion de bibliothï¿½que
+ *  &copy; 2004 Marc Frappier, Universitï¿½ de Sherbrooke
  */
 
 public class BaseballSessionListener implements HttpSessionListener
@@ -20,7 +21,7 @@ public void sessionCreated(HttpSessionEvent se)
 public void sessionDestroyed(HttpSessionEvent se)
 {
 System.out.println("BaseballSessionListener " + se.getSession().getId());
-GestionBibliotheque ligueBaseball = (GestionBibliotheque) se.getSession().getAttribute("biblio");
+GestionLigueBaseball ligueBaseball = (GestionLigueBaseball) se.getSession().getAttribute("baseball");
 if (ligueBaseball != null)
   {
   System.out.println("connexion =" + ligueBaseball.cx);
@@ -32,6 +33,6 @@ if (ligueBaseball != null)
     }
   }
 else
-  System.out.println("biblio inaccessible.");
+  System.out.println("ligue baseball inaccessible.");
 }
 }
