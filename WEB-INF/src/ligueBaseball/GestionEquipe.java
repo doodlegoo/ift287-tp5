@@ -5,8 +5,16 @@ import java.util.List;
 import java.io.*;
 
 import org.jdom2.*;
-import org.jdom2.*;
 import org.jdom2.output.*;
+import org.jdom2.input.*;
+import org.xml.sax.helpers.XMLReaderFactory;
+
+import java.util.Iterator;
+
+import javax.sql.RowSetInternal;
+import javax.sql.rowset.WebRowSet;
+import javax.sql.rowset.spi.XmlReader;
+
 /**
  *  * @author Mathieu Lavoie, Alex Provencher et Vincent Gagnon
  * classe intermedaire entre l'usager et les object qui parle a la base de donnee.
@@ -63,9 +71,23 @@ public class GestionEquipe {
 			e.setAttribute(dateDebut);
 			Joueurs.addContent(e);
 		}
-		
 	}
 	
+	
+	public void importerXML(String path)
+	{
+		SAXBuilder sb = new SAXBuilder();
+		try
+		{
+			Document document = sb.build(new File(path));
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception: ");
+			e.printStackTrace();
+		}
+	}
 	
 	/**
 	 * Ajout d'une nouvelle equipe dans la base de donnees. S'il existe deja,
