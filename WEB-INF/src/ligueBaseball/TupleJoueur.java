@@ -1,10 +1,14 @@
 package ligueBaseball;
 
+import java.sql.Date;
+
 public class TupleJoueur {
 	String Nom;
 	String Prenom;
 	int JoueurId;
 	String EquipeNom;
+	Date DateDebut;
+	int Numero;
 	
 	/**
 	 * structure de donnee pour les Joueur
@@ -33,5 +37,13 @@ public class TupleJoueur {
 		Prenom = prenom;
 		JoueurId = joueurId;
 		EquipeNom = equipeNom;
+	}
+	
+	public TupleJoueur(String nom, String prenom, int numero, Date date)
+	{
+		Nom = nom;
+		Prenom = prenom;
+		Numero = numero;
+		DateDebut = date;
 	}
 }

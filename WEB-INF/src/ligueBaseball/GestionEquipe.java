@@ -2,6 +2,10 @@ package ligueBaseball;
 
 import java.sql.*;
 import java.util.List;
+import java.io.*;
+
+import org.jdom2.*;
+import org.jdom2.output.*;;
 
 /**
  *  * @author Mathieu Lavoie, Alex Provencher et Vincent Gagnon
@@ -23,6 +27,38 @@ public class GestionEquipe {
 		this.terrain = terrain;
 	}
 
+	
+	public void exportXml()
+	{
+		//Nous allons commencer notre arborescence en créant la racine XML 
+		Element racine = new Element("equipe");
+		//On crée un nouveau Document JDOM basé sur la racine 
+		Document document = new Document(racine);
+		
+	}
+	
+	private void creeArbre(Document document,String equipe) throws SQLException
+	{
+		Element racine = document.getRootElement();
+		Element Terrain = new Element("terrain");
+		Element Joueurs = new Element("Joueurs");
+		
+		List<TupleJoueur> lj = this.equipe.equipeXML(equipe);
+		
+		for(TupleJoueur j : lj)
+		{
+			Element e = new Element("joueur");
+			Attribute nom = new Attribute("nom",j.Nom);
+			Attribute prenom =new Attribute("prenom", j.Prenom);
+			Attribute numero =new Attribute("nuemro", Integer.toString(j.Numero));
+			Attribute dateDebut =new Attribute("dateDebut", j.DateDebut.toString());
+			
+			Joueurs.addContent(new Element("joueur"));
+		}
+		
+	}
+	
+	
 	/**
 	 * Ajout d'une nouvelle equipe dans la base de donnees. S'il existe deja,
 	 * une exception est levee.

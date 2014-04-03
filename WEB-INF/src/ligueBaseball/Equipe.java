@@ -17,6 +17,7 @@ public class Equipe {
 	private PreparedStatement stmtSelectAll;
 	private PreparedStatement stmtExisteJoueurEquipe;
 	private PreparedStatement stmtMaxId;
+	private PreparedStatement stmtToXml;
 	private Connexion cx;
 
 	/**
@@ -43,6 +44,22 @@ public class Equipe {
 						+ "faitpartie.equipeid = equipe.equipeid and equipe.equipenom = ?");
 		stmtMaxId = cx.getConnection().prepareStatement(
 				"select max(equipeid) from equipe");
+		stmtToXml =  cx.getConnection().prepareStatement(
+				"select j.joueurnom,j.joueurprenom,f.numero,f.datedebut from equipe e, faitpartie f, joueur j where e.equipeid = f.equipeid and j.joueurid = f.joueurid and e.equipenom = ?");
+	}
+	
+	public List<TupleJoueur> equipeXML(String equipeNom) throws SQLException {
+		List<TupleJoueur> listJoueur = new ArrayList<TupleJoueur>();
+		stmtToXml.setString(1,equipeNom);
+		ResultSet rset = stmtToXml.executeQuery();
+		
+		while(rset.next())
+		{
+			TupleJoueur j = new TupleJoueur(rset.getString(1),rset.getString(2),rset.getInt(3),rset.getDate(4));
+			listJoueur.add(j);
+		}
+		rset.close();
+		return listJoueur;
 	}
 
 	/**
