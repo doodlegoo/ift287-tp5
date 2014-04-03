@@ -18,6 +18,7 @@ public class Equipe {
 	private PreparedStatement stmtExisteJoueurEquipe;
 	private PreparedStatement stmtMaxId;
 	private PreparedStatement stmtToXml;
+	private PreparedStatement stmtGetTerrain;
 	private Connexion cx;
 
 	/**
@@ -46,6 +47,7 @@ public class Equipe {
 				"select max(equipeid) from equipe");
 		stmtToXml =  cx.getConnection().prepareStatement(
 				"select j.joueurnom,j.joueurprenom,f.numero,f.datedebut from equipe e, faitpartie f, joueur j where e.equipeid = f.equipeid and j.joueurid = f.joueurid and e.equipenom = ?");
+		stmtGetTerrain = cx.getConnection().prepareStatement("select terrainnom,terrainadresse from terrain t, equipe e where t.terrainid=e.terrainid and e.equipeid and e.equipenom = ?");
 	}
 	
 	public List<TupleJoueur> equipeXML(String equipeNom) throws SQLException {
@@ -61,7 +63,30 @@ public class Equipe {
 		rset.close();
 		return listJoueur;
 	}
-
+	
+	public String getTerrainNom(String equipeNom) throws SQLException
+	{
+		stmtGetTerrain.setString(1, equipeNom);
+		ResultSet rset = stmtGetTerrain.executeQuery();
+		if(rset.next())
+		{
+			return rset.getString(1);
+		}
+		//need to throw exception no terrain
+		return null;
+	}
+	public String getTerrainAdresse(String equipeNom) throws SQLException
+	{
+		stmtGetTerrain.setString(1, equipeNom);
+		ResultSet rset = stmtGetTerrain.executeQuery();
+		if(rset.next())
+		{
+			return rset.getString(2);
+		}
+		//need to throw exception no terrain
+		return null;
+	}
+	
 	/**
 	 * Retourner la connexion associee.
 	 */
