@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN" "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
 <web-app id="test-baseball">
-  <display-name>Syst�me de gestion de ligue baseball</display-name>
+  <display-name>Système de gestion de ligue baseball</display-name>
   <context-param>
-    <param-name>exempleParam1</param-name>
+    <param-name>hey?</param-name>
     <param-value>valeurDeExempleParam1</param-value>
   </context-param>
   <context-param>
-    <param-name>exempleParam2</param-name>
+    <param-name>Wtf does this shit?</param-name>
     <param-value>valeurDeExempleParam2</param-value>
   </context-param>
   <listener>

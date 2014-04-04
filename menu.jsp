@@ -1,4 +1,3 @@
-
 <%@ include file="/WEB-INF/jspf/header.jspf" %> 
 
   <script src="//code.jquery.com/jquery-1.9.1.js"></script>
@@ -13,10 +12,10 @@
 <div id="accordion">
 	<h3>Creer equipe</h3>
 	<div>
-    <form action="isThisSerious?" METHOD="POST" role="form">
-			<BR> Nom equipe : <INPUT TYPE="TEXT" name="nom" > <BR>
-		    Nom terrain : <INPUT TYPE="TEXT" name="terrain " > <BR>
-		    Adresse terrain : <INPUT TYPE="TEXT" name="adresse" > <BR>
+    <form action="im_mad" METHOD="POST" role="form">
+			<BR> Nom equipe : <INPUT TYPE="TEXT" name="nomEquipeCreer" > <BR>
+		    Nom terrain* : <INPUT TYPE="TEXT" name="terrainCreer" > <BR>
+		    Adresse terrain* : <INPUT TYPE="TEXT" name="adresseCreer" > <BR>
 			<INPUT TYPE="SUBMIT" VALUE="Afficher equipe" class="btn btn-default" >
 		</FORM>
     	Need : nom equipe, nom-terrain*, adresse-terrain*
@@ -32,13 +31,17 @@
 	<h3>Supprimer equipe</h3>
 		<div>
 			<p>
-				Need: nom equipe
+				Nom d'equipe : <INPUT TYPE="TEXT" name="nomEquipeDelete" >  
 			</p>
 		</div>
   	<h3>Creer joueur</h3>
   		<div>
     		<p>
-    		Need:  Nom joueur, (nom equipe et numero)*, date de debut*
+    		Nom joueur : <input type="text" name="nomJoueurCreer" > <br>
+    		Nom d'equipe* : <input type="text" name="nomEquipeJoueurCreer" > <br>
+    		Numero* : <input type="text" name="numeroJoueurCreer" > <br>
+    		Date de debut : <input type="text" name="dateDebutJoueurCreer" > <br> 
+    		Need: Nom joueur, (nom equipe et numero)*, date de debut*
     		</p>
    		</div>
 	  <h3>Afficher joueur/equipe</h3>
@@ -49,9 +52,6 @@
 	    </p>
 	  </div>
 	</div>		
-<BR>
-<%-- Appel du servlet Logout pour revenir au menu login--%>
-<a href="Logout">Sortir</a>
-<BR>
 
+	* signifie non nécessaire
 <%@ include file="/WEB-INF/jspf/footer.jspf" %> 

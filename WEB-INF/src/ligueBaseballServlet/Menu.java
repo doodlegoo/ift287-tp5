@@ -29,11 +29,11 @@ public class Menu extends HttpServlet {
 		
 		
 		
-		String nom = request.getParameter("nom");
-		String terrain = request.getParameter("motDePasseBD");
-		String adresse = request.getParameter("adresse");
+		String nom = request.getParameter("nomEquipeCreer");
+		String terrain = request.getParameter("terrainCreer");
+		String adresse = request.getParameter("adresseCreer");
 		
-		
+		System.out.println(nom+" " + terrain + " " + adresse);
 		
 
 	}

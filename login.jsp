@@ -22,4 +22,4 @@
 		<%-- par le fureteur --%>
 		Date et heure normale de l'est: <%= DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, Locale.CANADA_FRENCH).format(new java.util.Date()) %>
 		
-<%@ include file="/WEB-INF/jspf/footer.jspf" %> 
+<%@ include file="/WEB-INF/jspf/footerLogin.jspf" %> 

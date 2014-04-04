@@ -1,9 +1,3 @@
-		<%-- Appel du servlet Logout pour revenir au menu login--%>
-<a href="Logout">Sortir</a>
-<BR>
-		
-		
-		
 		<!-- Site footer -->
 	    <div class="footer">
 	    	<p>&copy; Ligue de baseball 2014</p>
