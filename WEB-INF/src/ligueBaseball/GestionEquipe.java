@@ -4,9 +4,17 @@ import java.sql.*;
 import java.util.List;
 import java.io.*;
 
-/*import org.jdom2.*;
-import org.jdom2.output.*;;
-*/
+import org.jdom2.*;
+import org.jdom2.output.*;
+import org.jdom2.input.*;
+import org.xml.sax.helpers.XMLReaderFactory;
+
+import java.util.Iterator;
+
+import javax.sql.RowSetInternal;
+import javax.sql.rowset.WebRowSet;
+import javax.sql.rowset.spi.XmlReader;
+
 /**
  *  * @author Mathieu Lavoie, Alex Provencher et Vincent Gagnon
  * classe intermedaire entre l'usager et les object qui parle a la base de donnee.
@@ -27,20 +35,25 @@ public class GestionEquipe {
 		this.terrain = terrain;
 	}
 
-	/*
-	public void exportXml()
+	
+	public void exportXml(String equipeNom) throws SQLException
 	{
 		//Nous allons commencer notre arborescence en créant la racine XML 
 		Element racine = new Element("equipe");
 		//On crée un nouveau Document JDOM basé sur la racine 
 		Document document = new Document(racine);
-		
+		creeArbre(document, equipeNom);
 	}
 	
 	private void creeArbre(Document document,String equipe) throws SQLException
 	{
 		Element racine = document.getRootElement();
+		Element Equipe = new Element("equipe");
+		Equipe.setAttribute(new Attribute("nom",equipe));
+		
 		Element Terrain = new Element("terrain");
+		Terrain.setAttribute(new Attribute("nom",this.equipe.getTerrainNom(equipe)));
+		Terrain.setAttribute(new Attribute("adresse",this.equipe.getTerrainAdresse(equipe)));
 		Element Joueurs = new Element("Joueurs");
 		
 		List<TupleJoueur> lj = this.equipe.equipeXML(equipe);
@@ -52,12 +65,29 @@ public class GestionEquipe {
 			Attribute prenom =new Attribute("prenom", j.Prenom);
 			Attribute numero =new Attribute("nuemro", Integer.toString(j.Numero));
 			Attribute dateDebut =new Attribute("dateDebut", j.DateDebut.toString());
-			
-			Joueurs.addContent(new Element("joueur"));
+			e.setAttribute(nom);
+			e.setAttribute(prenom);
+			e.setAttribute(numero);
+			e.setAttribute(dateDebut);
+			Joueurs.addContent(e);
 		}
-		
 	}
-	*/
+	
+	
+	public void importerXML(String path)
+	{
+		SAXBuilder sb = new SAXBuilder();
+		try
+		{
+			Document document = sb.build(new File(path));
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception: ");
+			e.printStackTrace();
+		}
+	}
 	
 	/**
 	 * Ajout d'une nouvelle equipe dans la base de donnees. S'il existe deja,
