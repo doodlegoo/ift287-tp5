@@ -71,6 +71,8 @@ public class GestionEquipe {
 			e.setAttribute(dateDebut);
 			Joueurs.addContent(e);
 		}
+		
+		//shoot out xml
 	}
 	
 	
@@ -80,6 +82,28 @@ public class GestionEquipe {
 		try
 		{
 			Document document = sb.build(new File(path));
+			Element racine = document.getRootElement();
+			Element equipe = racine.getChild("equipe");
+			Element terrain = racine.getChild("terrain");
+			
+			String equipeNom = equipe.getAttributeValue("nom");
+			String terrainNom = terrain.getAttributeValue("nom");
+			String adresse = terrain.getAttributeValue("adresse");
+			//add in bd team and terrain
+			
+			ajout(equipeNom,terrainNom,adresse);
+			
+			Element joueurs = racine.getChild("joueurs");
+			
+			for(Element j : joueurs.getChildren())
+			{
+				String nom = j.getAttribute("nom").getValue();
+				String prenom = j.getAttribute("prenom").getValue();
+				int numero = j.getAttribute("numero").getIntValue();
+				Date date = Date.valueOf( j.getAttribute("dateDebut").getValue());
+				//insert in bd joueur if not exist
+				GestionLigueBaseball.gestionJoueur.ajout(nom,prenom,equipeNom,numero,date);
+			}
 			
 		}
 		catch(Exception e)

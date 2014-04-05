@@ -13,10 +13,10 @@ public Terrain terrain;
 public Arbitre arbitre;
 public Joueur joueur;
 public Match match;
-public GestionEquipe gestionEquipe;
-public GestionJoueur gestionJoueur;
-public GestionArbitre gestionArbitre;
-public GestionMatch gestionMatch;
+static public GestionEquipe gestionEquipe;
+static public GestionJoueur gestionJoueur;
+static public GestionArbitre gestionArbitre;
+static public GestionMatch gestionMatch;
 
 /**
   * Ouvre une connexion avec la BD relationnelle et
