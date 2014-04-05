@@ -5,9 +5,10 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script>
   $(function() {
-    $( "#accordion" ).accordion();
-  });
-  </script>
+    $( "#accordion" ).accordion({
+      heightStyle: "content"
+    });
+  });</script>
 
 <div id="accordion">
 	<h3>Creer equipe</h3>
@@ -43,7 +44,7 @@
   <h3>Afficher equipe</h3>
   <div>
     <p>
-  	  Liste equipe, rien a rentrer
+  	  <%= (new ligueBaseball.GestionLigueBaseball("postgres", "localhost", "postgres", "postgres", "qwerty")).gestionEquipe.getEquipes()%>
     </p>
   </div>
 	<h3>Supprimer equipe</h3>
@@ -119,6 +120,35 @@
 				
 		</form>	
 	    </p>
+	  </div>
+	  <h3>Creer match</h3>
+	  <div>
+	    <p>
+	    <form action="creerMatch" METHOD="POST" class="form-horizontal">
+
+			<input class="span2" name="prenomJoueur" type="text" placeholder="Prenom joueur">
+			<input class="span2" name="nomSupprimer" id="appendedInputButton" type="text" placeholder="Nom de l'equipe">
+  			<button class="btn" type="submit">Effacer joueur</button>
+				
+		</form>	
+	    </p>
+	  </div>
+	  <h3>Creer arbitre</h3>
+	  <div>
+	  Mettre les arbitres dans un seul onglet?
+	  </div>
+	  <h3>Afficher arbitre</h3>
+	  <div>
+	  </div>
+	  <h3>Arbitrer match</h3>
+	  <div>
+	  </div>
+	  <h3>Entrer les resultats d'un match</h3>
+	  <div>
+	  </div>
+	  <h3>Afficher les resultats </h3>
+	  <div>
+	  	Avec une date ou bien avec un nom d'equipe
 	  </div>
 	  
 	</div> <!--fin du accordion-->		

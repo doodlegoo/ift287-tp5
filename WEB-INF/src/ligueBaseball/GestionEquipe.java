@@ -4,9 +4,6 @@ import java.sql.*;
 import java.util.List;
 import java.io.*;
 
-import org.jdom2.*;
-import org.jdom2.output.*;
-import org.jdom2.input.*;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import java.util.Iterator;
@@ -14,6 +11,10 @@ import java.util.Iterator;
 import javax.sql.RowSetInternal;
 import javax.sql.rowset.WebRowSet;
 import javax.sql.rowset.spi.XmlReader;
+
+import org.jdom2.*;
+import org.jdom2.input.*;
+
 
 /**
  *  * @author Mathieu Lavoie, Alex Provencher et Vincent Gagnon
@@ -185,15 +186,16 @@ public class GestionEquipe {
 	/**
 	 * fait les verification et envoie le mesage de rajouter l'equipe qui corespond aux parametres
 	 */
-	public void getEquipes() {
+	public String getEquipes() {
+		String listeEquipes= "";
 		try {
 			List<TupleEquipe> listEquipes = equipe.getEquipes();
 			for (TupleEquipe tupleEquipe : listEquipes) {
-				System.out.println(tupleEquipe.equipeid + "\t"
-						+ tupleEquipe.equipenom);
+				listeEquipes+= tupleEquipe.equipenom +", ";
 			}
 		} catch (SQLException e) {
-		    System.out.println("Erreur usager: l'equipe existe pas");
+		    listeEquipes = "Erreur usager: l'equipe existe pas";
 		}
+		return listeEquipes;
 	}
 }
