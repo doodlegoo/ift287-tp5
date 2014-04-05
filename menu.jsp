@@ -12,15 +12,33 @@
 <div id="accordion">
 	<h3>Creer equipe</h3>
 	<div>
-    <form action="im_mad" METHOD="POST" role="form">
-			<BR> Nom equipe : <INPUT TYPE="TEXT" name="nomEquipeCreer" > <BR>
-		    Nom terrain* : <INPUT TYPE="TEXT" name="terrainCreer" > <BR>
-		    Adresse terrain* : <INPUT TYPE="TEXT" name="adresseCreer" > <BR>
-			<INPUT TYPE="SUBMIT" VALUE="Afficher equipe" class="btn btn-default" >
-		</FORM>
-    	Need : nom equipe, nom-terrain*, adresse-terrain*
-    	
-  
+	<form action="creerEquipe" METHOD="POST" class="form-horizontal">
+	  <div class="control-group">
+	    <label class="control-label" for="nomEquipeCreer">Nom equipe</label>
+	    <div class="controls">
+	      <input type="text" id="nomEquipeCreer" placeholder="">
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="terrainCreer">Nom terrain*</label>
+	    <div class="controls">
+	      <input type="text" id="terrainCreer" placeholder="">
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <label class="control-label" for="adresseCreer">Adresse Terrain*</label>
+	    <div class="controls">
+	      <input type="text" id="adresseCreer" placeholder="">
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <div class="controls">
+	      <button type="submit" class="btn btn-inverse">Creer l'equipe </button>
+	    </div>
+	  </div>
+	</form>
+	
+	Need : nom equipe, nom-terrain*, adresse-terrain*
 	</div>
   <h3>Afficher equipe</h3>
   <div>
@@ -31,27 +49,79 @@
 	<h3>Supprimer equipe</h3>
 		<div>
 			<p>
-				Nom d'equipe : <INPUT TYPE="TEXT" name="nomEquipeDelete" >  
+				Pour supprimer une equipe, vous devez supprimer tout les joueurs en faisant partie. <br>
+				Si des joueurs font partie de l'equipe que vous tentez de supprimer, aucune action ne sera prise. <br>
+				<div class="input-append">
+	  				<input class="span2" id="nomEquipeSupprimer" type="text" placeholder="Nom de l'equipe">
+	  				<button class="btn" type="btn btn-inverse">Effacer l'equipe</button>
+				</div>
+				Nom d'equipe  
 			</p>
 		</div>
   	<h3>Creer joueur</h3>
   		<div>
+			<form action="creerJoueur" METHOD="POST" class="form-horizontal">
+			  <div class="control-group">
+			    <label class="control-label" for="prenomJoueurCreer">Prenom Joueur</label>
+			    <div class="controls">
+			      <input type="text" id="prenomJoueurCreer" placeholder="">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="nomJoueurCreer">Nom Joueur</label>
+			    <div class="controls">
+			      <input type="text" id="nomJoueurCreer" placeholder="">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="nomEquipeCreerJoueur">Nom Equipe*</label>
+			    <div class="controls">
+			      <input type="text" id="nomEquipeCreerJoueur" placeholder="">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="numeroJoueurCreer">Numero*</label>
+			    <div class="controls">
+			      <input type="text" id="numeroJoueurCreer" placeholder="">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="dateDebut">Date debut*</label>
+			    <div class="controls">
+			      <input type="text" id="dateDebut" placeholder="">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <div class="controls">
+			      <button type="submit" class="btn btn-inverse">Creer joueur</button>
+			    </div>
+			  </div>
+			</form>
     		<p>
-    		Nom joueur : <input type="text" name="nomJoueurCreer" > <br>
-    		Nom d'equipe* : <input type="text" name="nomEquipeJoueurCreer" > <br>
-    		Numero* : <input type="text" name="numeroJoueurCreer" > <br>
-    		Date de debut : <input type="text" name="dateDebutJoueurCreer" > <br> 
-    		Need: Nom joueur, (nom equipe et numero)*, date de debut*
+    			Need: Nom joueur, (nom equipe et numero)*, date de debut*
     		</p>
    		</div>
-	  <h3>Afficher joueur/equipe</h3>
+	  <h3>Afficher joueur par equipe</h3>
 	  <div>
 	    <p>
 		   Option1 : rien
 		   Option2 : equipe
 	    </p>
 	  </div>
-	</div>		
+	  <h3>Supprimer joueur</h3>
+	  <div>
+	    <p>
+	    <form action="effacerJoueur" METHOD="POST" class="form-horizontal">
+
+			<input class="span2" name="prenomJoueur" type="text" placeholder="Prenom joueur">
+			<input class="span2" name="nomSupprimer" id="appendedInputButton" type="text" placeholder="Nom de l'equipe">
+  			<button class="btn" type="submit">Effacer joueur</button>
+				
+		</form>	
+	    </p>
+	  </div>
+	  
+	</div> <!--fin du accordion-->		
 
 	* signifie non nécessaire
 <%@ include file="/WEB-INF/jspf/footer.jspf" %> 

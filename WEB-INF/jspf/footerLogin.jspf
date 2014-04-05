@@ -1,6 +1,6 @@
 		<!-- Site footer -->
 	    <div class="footer">
-	    	<p>&copy; Ligue de baseball 2014</p>
+	    		<p class="text-right">&copy; Ligue de baseball 2014</p>
 	    </div>
 		
 	</BODY>
