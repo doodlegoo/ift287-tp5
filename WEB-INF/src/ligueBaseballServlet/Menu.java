@@ -1,10 +1,16 @@
 package ligueBaseballServlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import ligueBaseball.GestionLigueBaseball;
+import ligueBaseball.LigueBaseballException;
 
 /**
  * Classe pour login syst�me de gestion de biblioth�que
@@ -13,12 +19,13 @@ import javax.servlet.http.HttpServletResponse;
  * Sherbrooke
  */
 
+@SuppressWarnings("serial")
 public class Menu extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		System.out.println("Hey tu a réussi");
+		doGet(request, response);
+/*		System.out.println("Hey tu a réussi");
 		
 		//HttpSession session = request.getSession();
 		
@@ -28,7 +35,7 @@ public class Menu extends HttpServlet {
 		String terrain = request.getParameter("terrainCreer");
 		String adresse = request.getParameter("adresseCreer");
 		
-		System.out.println(nom+" " + terrain + " " + adresse);
+		System.out.println(nom+" " + terrain + " " + adresse);*/
 		
 
 	}
@@ -42,7 +49,29 @@ public class Menu extends HttpServlet {
 			throws ServletException, IOException {
 		// response.sendError(response.SC_INTERNAL_SERVER_ERROR, "Acc�s
 		// invalide");
-		doPost(request, response);
+		//doPost(request, response);
+		if (request.getParameter("creerEquipe") != null)
+			traiterCreerEquipe(request, response);
+	}
+	
+	public void traiterCreerEquipe(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		
+		try {
+			if (request.getParameter("nomEquipeCreer") == null)
+				throw new LigueBaseballException("Impossible de creer une equipe sans nom d'equipe");
+			else{
+				String nomEquipe = request.getParameter("nomEquipeCreer");
+					GestionLigueBaseball.gestionEquipe.ajout(nomEquipe);
+					RequestDispatcher dispatcher = request
+							.getRequestDispatcher("/menu.jsp");
+					dispatcher.forward(request, response);
+			}
+		} catch (LigueBaseballException e) {
+			
+		} catch (Exception e) {
+		
+		}
 	}
 
 } // class

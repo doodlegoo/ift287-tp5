@@ -13,11 +13,11 @@
 <div id="accordion">
 	<h3>Creer equipe</h3>
 	<div>
-	<form action="creerEquipe" METHOD="POST" class="form-horizontal">
+	<form action="Menu" METHOD="GET" class="form-horizontal">
 	  <div class="control-group">
 	    <label class="control-label" for="nomEquipeCreer">Nom equipe</label>
 	    <div class="controls">
-	      <input type="text" id="nomEquipeCreer" placeholder="">
+	      <input type="text" id="nomEquipeCreer" placeholder="" VALUE="Fuck Vincent">
 	    </div>
 	  </div>
 	  <div class="control-group">
@@ -34,7 +34,7 @@
 	  </div>
 	  <div class="control-group">
 	    <div class="controls">
-	      <button type="submit" class="btn btn-inverse">Creer l'equipe </button>
+	      <button type="submit" class="btn btn-inverse" name="creerEquipe">Creer l'equipe </button>
 	    </div>
 	  </div>
 	</form>
@@ -44,7 +44,7 @@
   <h3>Afficher equipe</h3>
   <div>
     <p>
-  	  <%= (new ligueBaseball.GestionLigueBaseball("postgres", "localhost", "postgres", "postgres", "qwerty")).gestionEquipe.getEquipes()%>
+  	  <%= (new ligueBaseball.GestionLigueBaseball("postgres", "localhost", "postgres", "postgres", "superstar")).gestionEquipe.getEquipes()%>
     </p>
   </div>
 	<h3>Supprimer equipe</h3>

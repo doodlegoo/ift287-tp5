@@ -189,9 +189,10 @@ public class GestionEquipe {
 	public String getEquipes() {
 		String listeEquipes= "";
 		try {
+			listeEquipes += "ID, Equipe <br>";
 			List<TupleEquipe> listEquipes = equipe.getEquipes();
 			for (TupleEquipe tupleEquipe : listEquipes) {
-				listeEquipes+= tupleEquipe.equipenom +", ";
+				listeEquipes+= tupleEquipe.equipeid + "," + tupleEquipe.equipenom +"<br>";
 			}
 		} catch (SQLException e) {
 		    listeEquipes = "Erreur usager: l'equipe existe pas";
